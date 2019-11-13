@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+ 
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>HelloServlet</servlet-class>
+    </servlet>
+  
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentListServlet</servlet-name>
+        <servlet-class>servlet.StudentListServlet</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>StudentListServlet</servlet-name>
+        <url-pattern>/listStudent</url-pattern>
+    </servlet-mapping>   
+         
+    <servlet>
+        <servlet-name>StudentAddServlet</servlet-name>
+        <servlet-class>servlet.StudentAddServlet</servlet-class>
+    </servlet>
+ 	
+    <servlet-mapping>
+        <servlet-name>StudentAddServlet</servlet-name>
+        <url-pattern>/addStudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentDeleteServlet</servlet-name>
+        <servlet-class>servlet.StudentDeleteServlet</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>StudentDeleteServlet</servlet-name>
+        <url-pattern>/deleteStudent</url-pattern>
+    </servlet-mapping>   
+
+    <servlet>
+        <servlet-name>StudentEditServlet</servlet-name>
+        <servlet-class>servlet.StudentEditServlet</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>StudentEditServlet</servlet-name>
+        <url-pattern>/editStudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentUpdateServlet</servlet-name>
+        <servlet-class>servlet.StudentUpdateServlet</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>StudentUpdateServlet</servlet-name>
+        <url-pattern>/updateStudent</url-pattern>
+    </servlet-mapping>
+
+</web-app>
