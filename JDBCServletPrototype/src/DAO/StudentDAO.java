@@ -14,7 +14,7 @@ public class StudentDAO {
 	Connection connection;
 	PreparedStatement statement;
 	
-	//³õÊ¼»¯Êı¾İ¿âÇı¶¯²¢½¨Á¢Êı¾İ¿âÁ¬½Ó
+	//åˆå§‹åŒ–æ•°æ®åº“é©±åŠ¨å¹¶å»ºç«‹æ•°æ®åº“è¿æ¥
 	public StudentDAO() { 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -24,10 +24,10 @@ public class StudentDAO {
 		}
 	}
 	
-	//»ñÈ¡Êı¾İ¿âÁ¬½Ó
+	//è·å–æ•°æ®åº“è¿æ¥
 	public void getConnection() throws SQLException {
-		//½¨Á¢Êı¾İ¿âÁ¬½Ó
-		connection =  DriverManager.getConnection("jdbc:mysql://localhost:3306/watermelon?characterEncoding=UTF-8", "root", "1050364782");
+		//å»ºç«‹æ•°æ®åº“è¿æ¥
+		connection =  DriverManager.getConnection("jdbc:mysql://localhost:3306/DatabaseName?characterEncoding=UTF-8", "root", "root");
 		connection.setAutoCommit(false);
 	}
 	
@@ -89,12 +89,12 @@ public class StudentDAO {
 		return new Student(num,name,age);
 	}
 	
-	//µ±list·½·¨ÎŞ²ÎÊ±£¬Ä¬ÈÏ´ÓµÚ0Ìõ¼ÇÂ¼¿ªÊ¼¶ÁÍêÕûÕÅ±í(±íÖĞÊı¾İĞ¡ÓÚShort.MAC_VALUE¸ö)
+	//å½“listæ–¹æ³•æ— å‚æ—¶ï¼Œé»˜è®¤ä»ç¬¬0æ¡è®°å½•å¼€å§‹è¯»å®Œæ•´å¼ è¡¨(è¡¨ä¸­æ•°æ®å°äºShort.MAC_VALUEä¸ª)
 	public List<Student> list() {
 		return list(0,Short.MAX_VALUE);
 	}
 	
-	//´Óstart¿ªÊ¼£¬½«lengthÌõ¼ÇÂ¼×ª»»ÎªStudent¶ÔÏó¼ÓÈëlistÖĞ£¬·µ»Ølist
+	//ä»startå¼€å§‹ï¼Œå°†lengthæ¡è®°å½•è½¬æ¢ä¸ºStudentå¯¹è±¡åŠ å…¥listä¸­ï¼Œè¿”å›list
 	public List<Student> list(int start,int length) {
 		ArrayList<Student> list = new ArrayList<Student>();
 		String sql = "select * from student limit ?,?";
@@ -115,7 +115,7 @@ public class StudentDAO {
 		return list;
 	}
 	
-	//»ñÈ¡Êı¾İ¿âÖĞ¼ÇÂ¼µÄÌõÊı
+	//è·å–æ•°æ®åº“ä¸­è®°å½•çš„æ¡æ•°
 	public int getTotalNum() {
 		int total = 0;
 		String sql = "select count(*) from student";
@@ -131,7 +131,7 @@ public class StudentDAO {
 		return total;
 	}
 	
-	//¹Ø±ÕsqlÓï¾äºÍÊı¾İ¿âÁ¬½Ó
+	//å…³é—­sqlè¯­å¥å’Œæ•°æ®åº“è¿æ¥
 	public void close() {
 		try {
 			statement.close();
