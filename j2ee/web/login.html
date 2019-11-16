@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+    <form action="login" method="post">
+        帐号:<input type="text" id="name" name="name"><br>
+        密码:<input type="password" id="password" name="password"><br>
+        <input type="submit" value="登录">
+    </form>
+    <div>
+        <input type="image" src="login.jpg">
+    </div>
+    <script type="text/javascript">
+        //打开浏览器时查询cookie，将cookie保存的内容加载到登录页面中
+        window.onload=function(){
+            if(document.cookie!=null){
+                var cookies = document.cookie.split(";");
+                var username = document.getElementById("name");
+                var userpswd = document.getElementById("password");
+                var namevalue = cookies[0].split("=");
+                var passwordvalue = cookies[1].split("=");
+                console.log(namevalue[1]);
+                console.log(passwordvalue[1]);
+                username.value = namevalue[1];
+                userpswd.value = passwordvalue[1];
+            }
+       }
+    </script>
+</body>
+</html>

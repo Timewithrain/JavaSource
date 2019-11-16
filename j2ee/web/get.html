@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>以JSON方式获取数据</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        <input id="sender" type="button" value="获取">
+   </form>
+   <div id="messageDiv"></div> 
+   <script>
+       //通过sender按钮触发此处的匿名函数
+        $('#sender').click(function(){
+            var url = "getServlet";
+            $.post(
+        		url, 
+        		function(data) {  
+                    var json = JSON.parse(data);
+                    var num = json.student.num;
+                    var name = json.student.name;
+                    var age = json.student.age;
+                    $("#messageDiv").html("学号："+num+"<br>姓名："+name+"<br>年龄："+age);
+         	});   
+        });
+   </script>
+</body>
+</html>

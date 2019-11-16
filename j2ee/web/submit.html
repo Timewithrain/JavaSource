@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>用Ajax以JSON方式提交数据</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        学号 ： <input type="text" id="num"> <br>
+        名字 ： <input type="text" id="name"> <br>
+        年龄 ： <input type="text" id="age"> <br>
+            <input id="sender" type="button" value="提交">
+   </form>
+   <div id="messageDiv"></div> 
+   <script>
+       //通过sender按钮触发此处的匿名函数
+        $('#sender').click(function(){
+            var num = document.getElementById('num').value;
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            //通过JSON的形式构造一个student对象
+            var student = {"num":num,"name":name,"age":age};
+            var url = "submitServlet";
+
+            $.post(
+        		url, 
+        		{"data":JSON.stringify(student)},
+        		function() {  
+		             alert("提交成功，请在Tomcat控制台查看服务端接收到的数据");
+         	});   
+        });
+   </script>
+</body>
+</html>
